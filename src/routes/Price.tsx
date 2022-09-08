@@ -18,7 +18,10 @@ interface priceProps {
 
 const Price = ({ coinId }: priceProps) => {
     const { isLoading, data } = useQuery<IcoinPrice[]>('coinPrice', () => fetchCoinPrice(coinId))
-
+    const exceptData = data ?? [] 
+    const chartData = exceptData?.map((item)=>{ 
+        return item.volume})
+    
     return (
         <div>
             <h1>Volume-Bar</h1>
@@ -28,7 +31,7 @@ const Price = ({ coinId }: priceProps) => {
                     series={[
                         {
                             name : 'Volume',
-                            data: data?.map((item)=> item.volume) as any
+                            data: chartData
                         }
                     ]}
                     options={

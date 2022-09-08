@@ -21,11 +21,12 @@ const Btn = styled.div`
   height : 10px; 
   width : 50px;
   border-radius : 5px;
-  background-color: ${(props) => props.theme.textColor };;
+  background-color: ${(props) => props.theme.bgColor };;
   &:hover {
     cursor: pointer;
   }
 `
+
 const Header = styled.header`
   height: 15vh;
   display: flex;
@@ -87,7 +88,7 @@ function Coins() {
   return (
     <Container>
       <Nav>
-        <Btn onClick={themeSet}/>
+        <Btn onClick={themeSet}><span>-mode</span></Btn>
       </Nav>
       <Header >
         <Title>Coins</Title>
